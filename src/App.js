@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import CreationForm from "./components/creationForm/CreationForm";
+import NoteList from "./components/noteList/NoteList"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./assets/index.css"
+import "./assets/App.css"
+
+class App extends Component {
+
+  constructor() {
+    super();
+    
+    this.state = {
+      notes: []
+    }
+  }
+
+  createNote = (title, text) => {
+    const newNote = {title, text};
+    const newNotesArray = [...this.state.notes, newNote];
+    const newState = {
+      notes: newNotesArray,
+    };
+    this.setState(newState);
+  }
+
+  render() {
+      return (
+        <section className="content">
+          <CreationForm createNote={this.createNote} />
+          <NoteList notes={this.state.notes} />
+        </section>
+      );
+  }
 }
 
 export default App;
