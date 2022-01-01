@@ -1,11 +1,14 @@
-.content {
-    display: flex;
+.conteudo {
+  display: flex;
 }
 
+.conteudo-principal{
+  flex-grow: 3;
+}
 :root {
-    --primary: #58a4b0;
-    --secondary: #373f51;
-    --secondary-active: #cccccc;
-    --background: #ffffff;
-    --background-details: #ececec;
+  --primaria: #58a4b0;
+  --secundaria: #373f51;
+  --secundaria-ativa: #cccccc;
+  --fundo: #ffffff;
+  --fundo-detalhes: #ececec;
 }
